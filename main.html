@@ -10,6 +10,19 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+			if(arr.length == 0 || arr.length == 1) return "-Infinity";
+			let first = Number.MIN_VALUE;
+			let second;
+			let count =0;
+			for (let index = 0; index < arr.length; index++) {
+				if(first === arr[index])count++;
+				if(arr[index] > first){
+					second = first;
+					first = arr[index];
+				}else if(arr[index] < first && arr[index] > second) second = arr[index];
+			}
+			if(count + 1 === arr.length) return "-Infinity";
+			else return second;
 			
 		}
 
